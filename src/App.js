@@ -51,7 +51,17 @@ const Folder = (props) => {
 };
 
 const Files = (props) => {
-	props.name.split('.');
+	const fileExtension = props.name.split('.')[1];
+	const fileIcons = {
+		mp4: 'headphones',
+		txt: 'file outline',
+		jpeg: 'file image outline',
+	};
 
-	return <div>{props.name}</div>;
+	return (
+		<div>
+			<i className={`${fileIcons[fileExtension]} icon`}></i>
+			{props.name}
+		</div>
+	);
 };
