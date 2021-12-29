@@ -12,7 +12,7 @@ export default function App() {
 			<Folder name="Applications">
 				<Files name="hw.txt" />
 				<Files name="dog.jpeg" />
-				<Files name="cat.png" />
+				<Files name="cat.mp4" />
 			</Folder>
 		</div>
 	);
@@ -27,7 +27,7 @@ const Folder = (props) => {
 	const [isOpen, setIsOpen] = useState(true);
 
 	// Border to Show seperations
-	const parentStyle = { border: '2px solid pink' };
+	const parentStyle = { border: '2px solid white' };
 	const childStyle = { marginLeft: '17px' };
 
 	// Function to handle isOpen
@@ -35,10 +35,14 @@ const Folder = (props) => {
 		setIsOpen(!isOpen);
 	};
 
+	// Change direction of caret
+	const direction = isOpen ? 'down' : 'right';
+
 	return (
 		<div style={parentStyle}>
 			<span onClick={handleIsOpen}>
-				<i className="folder icon"></i>
+				<i className="blue folder icon"></i>
+				<i className={`caret ${direction} icon`}></i>
 				{props.name}
 			</span>
 			<div style={childStyle}>{isOpen ? props.children : null}</div>
@@ -47,5 +51,7 @@ const Folder = (props) => {
 };
 
 const Files = (props) => {
+	props.name.split('.');
+
 	return <div>{props.name}</div>;
 };
