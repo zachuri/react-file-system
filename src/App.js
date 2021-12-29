@@ -37,7 +37,10 @@ const Folder = (props) => {
 
 	return (
 		<div style={parentStyle}>
-			<span onClick={handleIsOpen}>{props.name}</span>
+			<span onClick={handleIsOpen}>
+				<i className="folder icon"></i>
+				{props.name}
+			</span>
 			<div style={childStyle}>{isOpen ? props.children : null}</div>
 		</div>
 	);
